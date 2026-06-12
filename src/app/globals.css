@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0c;
+  --bg-2: #101014;
+  --surface: #161619;
+  --surface-2: #1c1c21;
+  --surface-3: #242429;
+
+  --border: rgba(255, 255, 255, 0.07);
+  --border-2: rgba(255, 255, 255, 0.12);
+
+  --ink: #f0f1f4;
+  --ink-2: #9ca0ad;
+  --muted: #5c5f6e;
+
+  --brand: #27a06a;
+  --brand-dark: #1f6f4a;
+  --brand-soft: rgba(39, 160, 106, 0.12);
+  --brand-ink: #6ee7b7;
+  --brand-glow: rgba(39, 160, 106, 0.35);
+
+  --purple: #7c3aed;
+  --purple-soft: rgba(124, 58, 237, 0.12);
+  --blue: #3b82f6;
+  --cyan: #06b6d4;
+  --amber: #d97706;
+  --red: #ef4444;
+  --green-pos: #22c55e;
+  --accent: #f97316;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { min-height: 100%; }
+
+body {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(39, 160, 106, 0.3); color: #fff; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 99px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.hairline { border: 1px solid var(--border); }
+.hairline-r { border-right: 1px solid var(--border); }
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim-fadeup { animation: fadeup 0.35s ease forwards; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  display: inline-block;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* Landing page feature card hover */
+.feat-card:hover {
+  border-color: rgba(39,160,106,0.35) !important;
+  background: var(--surface) !important;
+}
+.feat-card { transition: border-color 0.2s, background 0.2s; }
+
+/* Landing page smooth scroll */
+html { scroll-behavior: smooth; }
